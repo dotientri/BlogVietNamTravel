@@ -1,65 +1,107 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ChevronRight } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { posts } from "@/lib/data"
+import { InfinitePostList } from "@/components/infinite-post-list"
 
+const categoryNames = {
+  "mien-bac": "Miền Bắc",
+  "mien-trung": "Miền Trung",
+  "mien-nam": "Miền Nam",
+  "am-thuc": "Ẩm thực"
+}
+
+const popularPosts = posts.slice(0, 5); // Lấy 5 bài đầu tiên làm nổi bật
+
+const categories = [
+  { name: "Miền Bắc", slug: "mien-bac" },
+  { name: "Miền Trung", slug: "mien-trung" },
+  { name: "Miền Nam", slug: "mien-nam" },
+  { name: "Ẩm thực", slug: "am-thuc" },
+]
+
+const popularTags = ["Vịnh Hạ Long", "Sapa", "Hội An", "Đà Nẵng", "Phú Quốc", "Đà Lạt", "Ẩm thực đường phố", "Phượt", "Homestay", "Biển đảo"]
+
+// --- COMPONENT CHÍNH ---
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="container mx-auto px-4 py-8">
+      {/* Phần giới thiệu đầu trang */}
+      <div className="mb-12 text-center max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
+          Khám Phá Vẻ Đẹp Việt Nam
+        </h1>
+        <p className="text-lg text-muted-foreground">
+          Cẩm nang du lịch Việt Nam chi tiết với thông tin về điểm đến, ẩm thực, khách sạn và kinh nghiệm du lịch từ Bắc vào Nam.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* --- CỘT TRÁI: DANH SÁCH BÀI VIẾT (CHIẾM 8 PHẦN) --- */}
+        <div className="lg:col-span-8 space-y-8">
+          <InfinitePostList initialPosts={posts} categoryNames={categoryNames} />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* --- CỘT PHẢI: SIDEBAR (CHIẾM 4 PHẦN) --- */}
+        <div className="lg:col-span-4 space-y-8">
+          
+          {/* Widget 1: Bài viết nổi bật */}
+          <div className="bg-card text-card-foreground rounded-xl shadow-sm border p-6">
+            <h3 className="font-bold text-lg mb-4 flex items-center border-l-4 border-blue-600 pl-3">
+              📈 Bài Viết Nổi Bật
+            </h3>
+            <div className="space-y-4">
+              {popularPosts.map((post) => (
+                <Link href={`/bai-viet/${post.id}`} key={post.id} className="flex gap-4 group cursor-pointer">
+                  <div className="w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground line-clamp-2 group-hover:text-blue-600 transition-colors text-sm leading-snug">
+                      {post.title}
+                    </h4>
+                    <span className="text-xs text-muted-foreground mt-2 block">{post.date}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Widget 2: Chuyên mục */}
+          <div className="bg-card text-card-foreground rounded-xl shadow-sm border p-6">
+            <h3 className="font-bold text-lg mb-4 flex items-center border-l-4 border-blue-600 pl-3">
+              🗂️ Chuyên Mục
+            </h3>
+            <ul className="space-y-2">
+              {categories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link href={`/${cat.slug}`} className="flex justify-between items-center p-2 rounded hover:bg-accent text-accent-foreground hover:text-blue-600 transition-colors">
+                    <span>{cat.name}</span>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Widget 3: Từ khóa phổ biến */}
+          <div className="bg-card text-card-foreground rounded-xl shadow-sm border p-6">
+             <h3 className="font-bold text-lg mb-4 flex items-center border-l-4 border-blue-600 pl-3">
+              🏷️ Từ Khóa Phổ Biến
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {popularTags.map((tag) => (
+                <Link key={tag} href={`/search?q=${encodeURIComponent(tag)}`}>
+                  <Badge variant="secondary" className="cursor-pointer hover:bg-blue-100 hover:text-blue-700 transition-colors font-normal">
+                    {tag}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
-      </main>
+      </div>
     </div>
-  );
+  )
 }
