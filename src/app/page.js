@@ -1,24 +1,10 @@
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { posts } from "@/lib/data"
+import { posts, categories, categoryNames } from "@/lib/data" // Import tất cả từ data.js
 import { InfinitePostList } from "@/components/infinite-post-list"
 
-const categoryNames = {
-  "mien-bac": "Miền Bắc",
-  "mien-trung": "Miền Trung",
-  "mien-nam": "Miền Nam",
-  "am-thuc": "Ẩm thực"
-}
-
 const popularPosts = posts.slice(0, 5); // Lấy 5 bài đầu tiên làm nổi bật
-
-const categories = [
-  { name: "Miền Bắc", slug: "mien-bac" },
-  { name: "Miền Trung", slug: "mien-trung" },
-  { name: "Miền Nam", slug: "mien-nam" },
-  { name: "Ẩm thực", slug: "am-thuc" },
-]
 
 const popularTags = ["Vịnh Hạ Long", "Sapa", "Hội An", "Đà Nẵng", "Phú Quốc", "Đà Lạt", "Ẩm thực đường phố", "Phượt", "Homestay", "Biển đảo"]
 

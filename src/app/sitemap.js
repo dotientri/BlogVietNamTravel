@@ -1,7 +1,8 @@
 import { posts, categories } from "@/lib/data"
 
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app'
+  // Đảm bảo baseUrl không có dấu / ở cuối để tránh lỗi URL kép (//)
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app').replace(/\/$/, "");
 
   // 1. Trang chủ & Trang tĩnh
   const staticRoutes = [

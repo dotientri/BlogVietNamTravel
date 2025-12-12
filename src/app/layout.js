@@ -14,6 +14,14 @@ export const metadata = {
     // Thay mã xác minh của bạn vào đây nếu dùng phương pháp HTML Tag
     google: 'pGp4rqdDAMiTaJU2ReLbMzVzZLmaYLFOCvfOhKyqf_o', 
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -3,15 +3,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Clock, MapPin, Home, ChevronRight } from "lucide-react"
-import { getPostsByCategory } from "@/lib/data" // Import dữ liệu thật
-
-// Map tên tiếng Việt cho đẹp (Dùng chung cho cả Metadata và Component)
-const categoryNames = {
-  "mien-bac": "Du Lịch Miền Bắc",
-  "mien-trung": "Du Lịch Miền Trung",
-  "mien-nam": "Du Lịch Miền Nam",
-  "am-thuc": "Ẩm Thực Việt Nam"
-};
+import { getPostsByCategory, categoryNames } from "@/lib/data" // Import dữ liệu thật
 
 export async function generateMetadata({ params }) {
   const { category } = await params;

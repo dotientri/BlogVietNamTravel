@@ -103,8 +103,8 @@ export function SiteFooter() {
         <div className="mt-12 pt-8 border-t text-center text-xs text-muted-foreground flex flex-col md:flex-row justify-between items-center">
           <p>© 2025 Blog Du Lịch Việt Nam. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-foreground">Điều khoản sử dụng</Link>
-            <Link href="#" className="hover:text-foreground">Chính sách bảo mật</Link>
+            <Link href="/dieu-khoan-su-dung" className="hover:text-foreground">Điều khoản sử dụng</Link>
+            <Link href="/chinh-sach-bao-mat" className="hover:text-foreground">Chính sách bảo mật</Link>
           </div>
         </div>
       </div>

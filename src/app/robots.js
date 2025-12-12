@@ -1,5 +1,6 @@
 export default function robots() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app'
+  // Đảm bảo baseUrl không có dấu / ở cuối để tránh lỗi URL kép (//)
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app').replace(/\/$/, "");
 
   return {
     rules: {

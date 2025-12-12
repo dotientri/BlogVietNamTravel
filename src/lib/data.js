@@ -1149,3 +1149,10 @@ export const categories = [
   { slug: "mien-nam", name: "Miền Nam" },
   { slug: "am-thuc", name: "Ẩm Thực" }
 ];
+
+export const categoryNames = {
+  "mien-bac": "Miền Bắc",
+  "mien-trung": "Miền Trung",
+  "mien-nam": "Miền Nam",
+  "am-thuc": "Ẩm thực"
+};
