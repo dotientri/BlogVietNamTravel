@@ -1,17 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌏 FlashSEO Travel - Blog Du Lịch Việt Nam
 
-## Getting Started
+!Next.js
+!Tailwind CSS
+!Shadcn UI
 
-First, run the development server:
+Chào mừng đến với **FlashSEO Travel** - Nền tảng blog du lịch hiện đại, tối ưu hóa SEO và trải nghiệm người dùng, chuyên chia sẻ cẩm nang khám phá vẻ đẹp Việt Nam từ Bắc vào Nam.
+
+## ✨ Tính Năng Nổi Bật
+
+*   **🎨 Giao diện Hiện đại & Responsive:** Thiết kế đẹp mắt, tương thích hoàn hảo trên mọi thiết bị (Mobile, Tablet, Desktop).
+*   **🌙 Dark Mode:** Hỗ trợ chế độ Sáng/Tối giúp bảo vệ mắt và tăng trải nghiệm đọc.
+*   **🚀 Tối ưu SEO:**
+    *   Tự động tạo `sitemap.xml` và `robots.txt`.
+    *   Metadata động cho từng bài viết (Open Graph, Title, Description).
+    *   Cấu trúc HTML chuẩn Semantic.
+*   **⚡ Hiệu suất cao:** Sử dụng Next.js App Router, Server Components và Image Optimization.
+*   **🔍 Tìm kiếm thông minh:** Tìm kiếm bài viết theo tiêu đề, địa điểm và nội dung.
+*   **♾️ Infinite Scroll:** Tải thêm bài viết mượt mà không cần chuyển trang.
+*   **📱 Mobile Menu:** Menu điều hướng tiện lợi trên thiết bị di động.
+*   **🔗 Chia sẻ Mạng xã hội:** Tích hợp nút chia sẻ Facebook, Twitter, LinkedIn.
+
+## 🛠️ Công Nghệ Sử Dụng
+
+*   **Framework:** Next.js 15 (App Router)
+*   **Styling:** Tailwind CSS
+*   **UI Components:** shadcn/ui
+*   **Icons:** Lucide React
+*   **Theme:** next-themes
+*   **Animation:** tailwindcss-animate
+
+## 🚀 Cài Đặt & Chạy Dự Án
+
+Làm theo các bước sau để chạy dự án trên máy cá nhân của bạn:
+
+### 1. Clone dự án
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/username/flashseo.git
+cd flashseo
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

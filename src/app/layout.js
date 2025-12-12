@@ -12,7 +12,7 @@ export const metadata = {
   description: "Khám phá vẻ đẹp Việt Nam",
   verification: {
     // Thay mã xác minh của bạn vào đây nếu dùng phương pháp HTML Tag
-    google: 'ma-xac-minh-google-search-console-cua-ban',
+    google: 'pGp4rqdDAMiTaJU2ReLbMzVzZLmaYLFOCvfOhKyqf_o', 
   },
 };
 
