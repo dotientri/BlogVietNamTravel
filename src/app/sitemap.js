@@ -1,7 +1,7 @@
 import { posts, categories } from "@/lib/data"
 
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://flashseo-travel.vercel.app'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app'
 
   // 1. Trang chủ & Trang tĩnh
   const staticRoutes = [

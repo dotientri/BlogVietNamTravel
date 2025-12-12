@@ -140,6 +140,22 @@
   .prose img {
     @apply rounded-xl shadow-md;
   }
+  /* --- BỔ SUNG: Định dạng cho bảng trong bài viết --- */
+  .prose table {
+    @apply w-full my-6 text-sm border-collapse border border-border;
+  }
+  .prose thead {
+    @apply border-b-2 border-border;
+  }
+  .prose th {
+    @apply border border-border p-2 text-left font-bold bg-muted;
+  }
+  .prose td {
+    @apply border border-border p-2;
+  }
+  .prose tbody tr:nth-child(even) {
+    @apply bg-muted/50;
+  }
 }
 
 /* Custom utility for hiding scrollbars */

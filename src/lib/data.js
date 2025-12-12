@@ -45,38 +45,38 @@ export const posts = [
       </ul>
 
       <h3>Bảng chi phí ước tính (2 ngày 1 đêm)</h3>
-      <table class="w-full border-collapse border border-slate-300 mt-4 mb-6 text-sm">
+      <table>
         <thead>
-          <tr class="bg-slate-100">
-            <th class="border border-slate-300 p-2 text-left">Hạng mục</th>
-            <th class="border border-slate-300 p-2 text-left">Chi tiết</th>
-            <th class="border border-slate-300 p-2 text-right">Đơn giá (VNĐ)</th>
+          <tr>
+            <th>Hạng mục</th>
+            <th>Chi tiết</th>
+            <th class="text-right">Đơn giá (VNĐ)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 p-2">Di chuyển</td>
-            <td class="border border-slate-300 p-2">Limousine khứ hồi HN-HL</td>
-            <td class="border border-slate-300 p-2 text-right">500.000</td>
+            <td>Di chuyển</td>
+            <td>Limousine khứ hồi HN-HL</td>
+            <td class="text-right">500.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Lưu trú</td>
-            <td class="border border-slate-300 p-2">Khách sạn 3-4 sao (1 đêm/người)</td>
-            <td class="border border-slate-300 p-2 text-right">600.000</td>
+            <td>Lưu trú</td>
+            <td>Khách sạn 3-4 sao (1 đêm/người)</td>
+            <td class="text-right">600.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Vé tham quan</td>
-            <td class="border border-slate-300 p-2">Vé tàu thăm vịnh + Vé thắng cảnh</td>
-            <td class="border border-slate-300 p-2 text-right">440.000</td>
+            <td>Vé tham quan</td>
+            <td>Vé tàu thăm vịnh + Vé thắng cảnh</td>
+            <td class="text-right">440.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Ăn uống</td>
-            <td class="border border-slate-300 p-2">3 bữa chính + 1 bữa sáng</td>
-            <td class="border border-slate-300 p-2 text-right">800.000</td>
+            <td>Ăn uống</td>
+            <td>3 bữa chính + 1 bữa sáng</td>
+            <td class="text-right">800.000</td>
           </tr>
-          <tr class="font-bold bg-slate-50">
-            <td class="border border-slate-300 p-2" colspan="2">TỔNG CỘNG</td>
-            <td class="border border-slate-300 p-2 text-right">~ 2.340.000</td>
+          <tr class="font-bold">
+            <td colspan="2">TỔNG CỘNG</td>
+            <td class="text-right">~ 2.340.000</td>
           </tr>
         </tbody>
       </table>
@@ -136,38 +136,38 @@ export const posts = [
       </ul>
 
       <h3>Bảng chi phí ước tính (2 ngày 1 đêm)</h3>
-      <table class="w-full border-collapse border border-slate-300 mt-4 mb-6 text-sm">
+      <table>
         <thead>
-          <tr class="bg-slate-100">
-            <th class="border border-slate-300 p-2 text-left">Hạng mục</th>
-            <th class="border border-slate-300 p-2 text-left">Chi tiết</th>
-            <th class="border border-slate-300 p-2 text-right">Đơn giá (VNĐ)</th>
+          <tr>
+            <th>Hạng mục</th>
+            <th>Chi tiết</th>
+            <th class="text-right">Đơn giá (VNĐ)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 p-2">Di chuyển</td>
-            <td class="border border-slate-300 p-2">Xe đưa đón ĐN-HA + Thuê xe máy</td>
-            <td class="border border-slate-300 p-2 text-right">400.000</td>
+            <td>Di chuyển</td>
+            <td>Xe đưa đón ĐN-HA + Thuê xe máy</td>
+            <td class="text-right">400.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Lưu trú</td>
-            <td class="border border-slate-300 p-2">Homestay phố cổ (1 đêm/người)</td>
-            <td class="border border-slate-300 p-2 text-right">350.000</td>
+            <td>Lưu trú</td>
+            <td>Homestay phố cổ (1 đêm/người)</td>
+            <td class="text-right">350.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Vé tham quan</td>
-            <td class="border border-slate-300 p-2">Vé phố cổ + Rừng dừa</td>
-            <td class="border border-slate-300 p-2 text-right">230.000</td>
+            <td>Vé tham quan</td>
+            <td>Vé phố cổ + Rừng dừa</td>
+            <td class="text-right">230.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Ăn uống</td>
-            <td class="border border-slate-300 p-2">Cao lầu, Cơm gà, Bánh mì...</td>
-            <td class="border border-slate-300 p-2 text-right">500.000</td>
+            <td>Ăn uống</td>
+            <td>Cao lầu, Cơm gà, Bánh mì...</td>
+            <td class="text-right">500.000</td>
           </tr>
-          <tr class="font-bold bg-slate-50">
-            <td class="border border-slate-300 p-2" colspan="2">TỔNG CỘNG</td>
-            <td class="border border-slate-300 p-2 text-right">~ 1.480.000</td>
+          <tr class="font-bold">
+            <td colspan="2">TỔNG CỘNG</td>
+            <td class="text-right">~ 1.480.000</td>
           </tr>
         </tbody>
       </table>
@@ -224,38 +224,38 @@ export const posts = [
       </ul>
 
       <h3>Bảng chi phí ước tính (3 ngày 2 đêm)</h3>
-      <table class="w-full border-collapse border border-slate-300 mt-4 mb-6 text-sm">
+      <table>
         <thead>
-          <tr class="bg-slate-100">
-            <th class="border border-slate-300 p-2 text-left">Hạng mục</th>
-            <th class="border border-slate-300 p-2 text-left">Chi tiết</th>
-            <th class="border border-slate-300 p-2 text-right">Đơn giá (VNĐ)</th>
+          <tr>
+            <th>Hạng mục</th>
+            <th>Chi tiết</th>
+            <th class="text-right">Đơn giá (VNĐ)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 p-2">Di chuyển</td>
-            <td class="border border-slate-300 p-2">Xe khách khứ hồi + Thuê xe máy</td>
-            <td class="border border-slate-300 p-2 text-right">800.000</td>
+            <td>Di chuyển</td>
+            <td>Xe khách khứ hồi + Thuê xe máy</td>
+            <td class="text-right">800.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Lưu trú</td>
-            <td class="border border-slate-300 p-2">Homestay/Khách sạn 3* (2 đêm)</td>
-            <td class="border border-slate-300 p-2 text-right">800.000</td>
+            <td>Lưu trú</td>
+            <td>Homestay/Khách sạn 3* (2 đêm)</td>
+            <td class="text-right">800.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Vé tham quan</td>
-            <td class="border border-slate-300 p-2">Fansipan + Cát Cát + Tả Van</td>
-            <td class="border border-slate-300 p-2 text-right">1.300.000</td>
+            <td>Vé tham quan</td>
+            <td>Fansipan + Cát Cát + Tả Van</td>
+            <td class="text-right">1.300.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Ăn uống</td>
-            <td class="border border-slate-300 p-2">Lẩu cá tầm, đồ nướng, thắng cố</td>
-            <td class="border border-slate-300 p-2 text-right">1.000.000</td>
+            <td>Ăn uống</td>
+            <td>Lẩu cá tầm, đồ nướng, thắng cố</td>
+            <td class="text-right">1.000.000</td>
           </tr>
-          <tr class="font-bold bg-slate-50">
-            <td class="border border-slate-300 p-2" colspan="2">TỔNG CỘNG</td>
-            <td class="border border-slate-300 p-2 text-right">~ 3.900.000</td>
+          <tr class="font-bold">
+            <td colspan="2">TỔNG CỘNG</td>
+            <td class="text-right">~ 3.900.000</td>
           </tr>
         </tbody>
       </table>
@@ -308,38 +308,38 @@ export const posts = [
       <p>Sân bay Phú Bài cách trung tâm 15km. Taxi về trung tâm khoảng 250.000 VNĐ.</p>
       
       <h3>Bảng chi phí ước tính (2 ngày 1 đêm)</h3>
-      <table class="w-full border-collapse border border-slate-300 mt-4 mb-6 text-sm">
+      <table>
         <thead>
-          <tr class="bg-slate-100">
-            <th class="border border-slate-300 p-2 text-left">Hạng mục</th>
-            <th class="border border-slate-300 p-2 text-left">Chi tiết</th>
-            <th class="border border-slate-300 p-2 text-right">Đơn giá (VNĐ)</th>
+          <tr>
+            <th>Hạng mục</th>
+            <th>Chi tiết</th>
+            <th class="text-right">Đơn giá (VNĐ)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="border border-slate-300 p-2">Di chuyển</td>
-            <td class="border border-slate-300 p-2">Taxi sân bay + Thuê xe máy</td>
-            <td class="border border-slate-300 p-2 text-right">400.000</td>
+            <td>Di chuyển</td>
+            <td>Taxi sân bay + Thuê xe máy</td>
+            <td class="text-right">400.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Lưu trú</td>
-            <td class="border border-slate-300 p-2">Khách sạn 3 sao (1 đêm)</td>
-            <td class="border border-slate-300 p-2 text-right">400.000</td>
+            <td>Lưu trú</td>
+            <td>Khách sạn 3 sao (1 đêm)</td>
+            <td class="text-right">400.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Vé tham quan</td>
-            <td class="border border-slate-300 p-2">Combo 3 điểm (Đại Nội + 2 Lăng)</td>
-            <td class="border border-slate-300 p-2 text-right">420.000</td>
+            <td>Vé tham quan</td>
+            <td>Combo 3 điểm (Đại Nội + 2 Lăng)</td>
+            <td class="text-right">420.000</td>
           </tr>
           <tr>
-            <td class="border border-slate-300 p-2">Ăn uống</td>
-            <td class="border border-slate-300 p-2">Bún bò, Cơm hến, Chè, Bánh...</td>
-            <td class="border border-slate-300 p-2 text-right">500.000</td>
+            <td>Ăn uống</td>
+            <td>Bún bò, Cơm hến, Chè, Bánh...</td>
+            <td class="text-right">500.000</td>
           </tr>
-          <tr class="font-bold bg-slate-50">
-            <td class="border border-slate-300 p-2" colspan="2">TỔNG CỘNG</td>
-            <td class="border border-slate-300 p-2 text-right">~ 1.720.000</td>
+          <tr class="font-bold">
+            <td colspan="2">TỔNG CỘNG</td>
+            <td class="text-right">~ 1.720.000</td>
           </tr>
         </tbody>
       </table>
@@ -1127,14 +1127,16 @@ export const posts = [
   }
 ];
 
-// Hàm tìm kiếm nâng cấp: Tìm trong Title, Location và Category
+// Hàm tìm kiếm nâng cấp: Tìm trong Title, Location, Category, Tags và Excerpt
 export const searchPosts = (query) => {
     if (!query) return [];
     const lowerQuery = query.toLowerCase();
     return posts.filter(p => 
         p.title.toLowerCase().includes(lowerQuery) || 
         p.location.toLowerCase().includes(lowerQuery) ||
-        p.category.toLowerCase().includes(lowerQuery)
+        p.category.toLowerCase().includes(lowerQuery) ||
+        (p.tags && p.tags.some(tag => tag.toLowerCase().includes(lowerQuery))) ||
+        (p.excerpt && p.excerpt.toLowerCase().includes(lowerQuery))
     );
 };
 
