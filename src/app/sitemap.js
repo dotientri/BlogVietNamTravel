@@ -23,12 +23,6 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/dieu-khoan-su-dung`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
     }
   ]
 

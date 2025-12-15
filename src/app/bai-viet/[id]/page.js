@@ -1,33 +1,178 @@
-export const metadata = {
-  title: "Điều Khoản Sử Dụng - VietnamTravel",
-  description: "Các điều khoản và điều kiện khi sử dụng website VietnamTravel.",
-};
+import { getPostById, categoryNames } from "@/lib/data";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { Clock, MapPin, User, Tag } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ShareButtons } from "@/components/share-buttons";
+import { ImageCarousel } from "@/components/image-carousel";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
-export default function TermsOfUsePage() {
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const post = getPostById(id);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app';
+  
+  if (!post) {
+    return {
+      title: "Không tìm thấy bài viết",
+    };
+  }
+
+  const url = `${baseUrl}/bai-viet/${post.id}`;
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: url,
+      siteName: 'VietnamTravel',
+      images: [{ url: post.image, alt: post.title }],
+      locale: 'vi_VN',
+      type: 'article',
+      publishedTime: post.date, // Lưu ý: Google thích định dạng ISO 8601 (YYYY-MM-DD)
+      authors: [post.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
+
+export default async function PostPage({ params }) {
+  const { id } = await params;
+  const post = getPostById(id);
+
+  if (!post) {
+    notFound();
+  }
+
+  // Chuyển đổi ngày từ DD/MM/YYYY sang ISO 8601 cho Schema
+  const [day, month, year] = post.date.split('/');
+  const isoDate = `${year}-${month}-${day}`;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blog-viet-nam-travel.vercel.app';
+
+  // Cấu trúc dữ liệu Schema.org (JSON-LD) cho bài viết
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    image: [post.image],
+    datePublished: isoDate,
+    dateModified: isoDate,
+    author: [{
+        '@type': 'Person',
+        name: post.author,
+    }],
+    publisher: {
+        '@type': 'Organization',
+        name: 'VietnamTravel',
+        logo: {
+            '@type': 'ImageObject',
+            url: `${baseUrl}/images/logo.png`
+        }
+    },
+    description: post.excerpt,
+    mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${baseUrl}/bai-viet/${post.id}`
+    }
+  };
+
+  // Gộp ảnh đại diện và thư viện ảnh thành một danh sách duy nhất
+  const allImages = [post.image, ...(post.gallery || [])];
+
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-6 text-foreground">Điều Khoản Sử Dụng</h1>
-      <div className="prose prose-slate max-w-none dark:prose-invert">
-        <p>Việc bạn truy cập và sử dụng trang web VietnamTravel đồng nghĩa với việc bạn đồng ý tuân thủ các điều khoản và điều kiện dưới đây.</p>
+    <div className="container mx-auto px-4 pt-6 pb-12 max-w-4xl">
+      {/* Thêm Schema Markup vào trang */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
-        <h2>1. Bản quyền nội dung</h2>
-        <p>Tất cả nội dung trên trang web này, bao gồm văn bản, hình ảnh, logo và video, đều thuộc bản quyền của VietnamTravel hoặc được cấp phép sử dụng hợp pháp. Bạn không được sao chép, tái bản hoặc sử dụng cho mục đích thương mại mà không có sự đồng ý bằng văn bản của chúng tôi.</p>
+      {/* Breadcrumb & Share (Gộp tất cả lên đầu) */}
+      <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">Trang chủ</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href={`/${post.category}`}>{categoryNames[post.category]}</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="line-clamp-1">{post.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
-        <h2>2. Trách nhiệm người dùng</h2>
-        <p>Khi sử dụng trang web, bạn cam kết:</p>
-        <ul>
-            <li>Không đăng tải các nội dung vi phạm pháp luật, đồi trụy, hoặc xúc phạm người khác trong phần bình luận.</li>
-            <li>Không thực hiện các hành vi phá hoại, tấn công hệ thống kỹ thuật của trang web.</li>
-        </ul>
+        {/* Chuyển nút Share lên đầu */}
+        <ShareButtons id={post.id} title={post.title} />
+      </div>
 
-        <h2>3. Miễn trừ trách nhiệm</h2>
-        <p>Thông tin trên VietnamTravel chỉ mang tính chất tham khảo. Chúng tôi luôn nỗ lực cung cấp thông tin chính xác nhất, nhưng không đảm bảo tính tuyệt đối về độ chính xác, đầy đủ hoặc kịp thời của thông tin. Chúng tôi không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc sử dụng thông tin trên trang web.</p>
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-foreground leading-tight">
+          {post.title}
+        </h1>
 
-        <h2>4. Liên kết đến trang web khác</h2>
-        <p>Trang web của chúng tôi có thể chứa các liên kết đến các trang web bên thứ ba. Chúng tôi không kiểm soát và không chịu trách nhiệm về nội dung hoặc chính sách bảo mật của các trang web đó.</p>
+        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground border-b pb-6">
+          <div className="flex items-center">
+            <User className="w-4 h-4 mr-1" />
+            {post.author}
+          </div>
+          <div className="flex items-center">
+            <Clock className="w-4 h-4 mr-1" />
+            {post.date}
+          </div>
+          <div className="flex items-center">
+            <MapPin className="w-4 h-4 mr-1" />
+            {post.location}
+          </div>
+        </div>
+      </div>
 
-        <h2>5. Thay đổi điều khoản</h2>
-        <p>Chúng tôi có quyền thay đổi các điều khoản sử dụng này bất cứ lúc nào mà không cần báo trước. Việc bạn tiếp tục sử dụng trang web sau khi có thay đổi đồng nghĩa với việc bạn chấp nhận các điều khoản mới.</p>
+      {/* Combined Image Carousel (Featured + Gallery) */}
+      <div className="mb-10">
+        <ImageCarousel images={allImages} />
+      </div>
+
+      {/* Content */}
+      <div className="prose prose-lg prose-slate max-w-none dark:prose-invert mb-10">
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </div>
+
+      {/* Tags & Share */}
+      <div className="border-t pt-8 mt-8">
+        <div className="flex flex-wrap gap-2">
+          {post.tags && post.tags.map(tag => (
+            <Link key={tag} href={`/search?q=${encodeURIComponent(tag)}`}>
+              <Badge variant="outline" className="hover:bg-secondary cursor-pointer">
+                <Tag className="w-3 h-3 mr-1" /> {tag}
+              </Badge>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

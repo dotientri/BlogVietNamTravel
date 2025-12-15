@@ -25,7 +25,7 @@ export function ImageCarousel({ images, className }) {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = (scrollRef.current.clientWidth / 3) * (direction === "left" ? -1 : 1)
+      const scrollAmount = scrollRef.current.clientWidth * (direction === "left" ? -1 : 1)
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" })
     }
   }
